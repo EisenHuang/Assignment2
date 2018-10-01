@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5903DE152162987300E6E8E2 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5903DE142162987300E6E8E2 /* DetailedViewController.m */; };
 		590DDE8A215E8F160015DC0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 590DDE89215E8F160015DC0A /* AppDelegate.m */; };
 		590DDE8D215E8F160015DC0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590DDE8C215E8F160015DC0A /* ViewController.m */; };
 		590DDE90215E8F160015DC0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 590DDE8E215E8F160015DC0A /* Main.storyboard */; };
 		590DDE92215E8F170015DC0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 590DDE91215E8F170015DC0A /* Assets.xcassets */; };
 		590DDE95215E8F170015DC0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 590DDE93215E8F170015DC0A /* LaunchScreen.storyboard */; };
 		590DDE98215E8F170015DC0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 590DDE97215E8F170015DC0A /* main.m */; };
+		590DDEA3215E9FED0015DC0A /* Student_Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 590DDEA2215E9FED0015DC0A /* Student_Info.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5903DE132162987300E6E8E2 /* DetailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
+		5903DE142162987300E6E8E2 /* DetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
 		590DDE85215E8F160015DC0A /* Assignment2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		590DDE88215E8F160015DC0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		590DDE89215E8F160015DC0A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		590DDE94215E8F170015DC0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		590DDE96215E8F170015DC0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		590DDE97215E8F170015DC0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		590DDEA1215E9FED0015DC0A /* Student_Info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student_Info.h; sourceTree = "<group>"; };
+		590DDEA2215E9FED0015DC0A /* Student_Info.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student_Info.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5903DE0721613D8500E6E8E2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				590DDE97215E8F170015DC0A /* main.m */,
+				590DDE88215E8F160015DC0A /* AppDelegate.h */,
+				590DDE89215E8F160015DC0A /* AppDelegate.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		590DDE7C215E8F160015DC0A = {
 			isa = PBXGroup;
 			children = (
@@ -58,15 +74,17 @@
 		590DDE87215E8F160015DC0A /* Assignment2 */ = {
 			isa = PBXGroup;
 			children = (
-				590DDE88215E8F160015DC0A /* AppDelegate.h */,
-				590DDE89215E8F160015DC0A /* AppDelegate.m */,
+				590DDEA1215E9FED0015DC0A /* Student_Info.h */,
+				590DDEA2215E9FED0015DC0A /* Student_Info.m */,
 				590DDE8B215E8F160015DC0A /* ViewController.h */,
 				590DDE8C215E8F160015DC0A /* ViewController.m */,
+				5903DE132162987300E6E8E2 /* DetailedViewController.h */,
+				5903DE142162987300E6E8E2 /* DetailedViewController.m */,
 				590DDE8E215E8F160015DC0A /* Main.storyboard */,
+				5903DE0721613D8500E6E8E2 /* Supporting Files */,
 				590DDE91215E8F170015DC0A /* Assets.xcassets */,
 				590DDE93215E8F170015DC0A /* LaunchScreen.storyboard */,
 				590DDE96215E8F170015DC0A /* Info.plist */,
-				590DDE97215E8F170015DC0A /* main.m */,
 			);
 			path = Assignment2;
 			sourceTree = "<group>";
@@ -144,6 +162,8 @@
 				590DDE8D215E8F160015DC0A /* ViewController.m in Sources */,
 				590DDE98215E8F170015DC0A /* main.m in Sources */,
 				590DDE8A215E8F160015DC0A /* AppDelegate.m in Sources */,
+				590DDEA3215E9FED0015DC0A /* Student_Info.m in Sources */,
+				5903DE152162987300E6E8E2 /* DetailedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

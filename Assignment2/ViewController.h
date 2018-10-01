@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+     @public NSMutableArray *course;
+}
 
+- (void) showDisplayAtIndex:(int) index;
 
 @end
 
