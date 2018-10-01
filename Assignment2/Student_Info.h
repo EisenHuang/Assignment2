@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *studentName , *imagePath, *address;
 @property double midtermScore, finalScore;
 @property int homework1 , homework2 , homework3;
--(id) init: (NSString *) name :  (NSString *) address :  (float) midtermScore :  (float) finalScore :  (int)homework1 :  (int) homework2 :  (int) homework3 ;
+-(id) init: (NSString *) name :  (NSString *) address :  (float) midtermScore :  (float) finalScore :  (int)homework1 :  (int) homework2 :  (int) homework3 : (NSString *) image;
 - (NSString *) Print_Object;
 
 

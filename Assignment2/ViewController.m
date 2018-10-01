@@ -39,7 +39,6 @@ int incrementCount = 0;
         case 0:
             break;
         case 1:
-            
             vC.studentName = student.studentName;//_studentLabel.text;
             vC.address = student.address; //_addressLabel.text;
             vC.imagePath = student.imagePath;
@@ -134,11 +133,11 @@ int incrementCount = 0;
     course = [[NSMutableArray alloc] init];
   //  Student_Info * student = [Student_Info new];
     
-    [course addObject:[[Student_Info alloc] init:@"King Richard III" :@"Leicester Castle, England" :72 :45 :9 :10 :00]];
-    [course addObject:[[Student_Info alloc] init:@"Prince Hamlet" :@"Elsinore Castle, Denmark" :100 :0 :10 :10 :10]];
-    [course addObject:[[Student_Info alloc] init:@"King Lear" :@"Leicester Castle, England" :100 :22 :10 :6 :0]];
-    [course addObject:[[Student_Info alloc] init:@"King Henry VIII" :@"Whitehall Palace, England" :62 :60 :7 :6 :7]];
-    [course addObject:[[Student_Info alloc] init:@"Queen Elizabeth" :@"Richmond Palace, England" :62 :60 :7 :6 :7]];
+    [course addObject:[[Student_Info alloc] init:@"King Richard III" :@"Leicester Castle, England" :72 :45 :9 :10 :00 : @"richard_iii"]];
+    [course addObject:[[Student_Info alloc] init:@"Prince Hamlet" :@"Elsinore Castle, Denmark" :100 :0 :10 :10 :10: @"hamlet"]];
+    [course addObject:[[Student_Info alloc] init:@"King Lear" :@"Leicester Castle, England" :100 :22 :10 :6 :0 : @"king_lear"]];
+    [course addObject:[[Student_Info alloc] init:@"King Henry VIII" :@"Whitehall Palace, England" :62 :60 :7 :6 :7: @"henry_VIII"]];
+    [course addObject:[[Student_Info alloc] init:@"Queen Elizabeth" :@"Richmond Palace, England" :62 :60 :7 :6 :7: @"queen_elizabeth"]];
     [self showDisplayAtIndex:0];
 }
 @end
