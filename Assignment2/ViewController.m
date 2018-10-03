@@ -141,92 +141,21 @@ int incrementCount = 0;
     
     [_recordSlider setMaximumValue:[course count] - 1];
     [_recordSlider setValue:currentIndex animated:YES];
-    /*
-    if (currentIndex == [course count] - 2) {
-        [_nextButton setEnabled:false];
-    }
-    
-    if (currentIndex == 0) {
-        [_previousButton setEnabled:true];
-    }*/
-    //currentIndex = (currentIndex + 1) % [course count];
-    //[self showDisplayAtIndex:currentIndex];
-    //[_recordSlider setValue:currentIndex animated:YES];
-    
     
 }
 
-/*-(void) previousCheck{
-    currentIndex = (currentIndex - 1) % [course count];
-    if (currentIndex == 1) {
-        [_previousButton setEnabled:false];
-    }
-
-    if (currentIndex == [course count] - 1) {
-        [_nextButton setEnabled:true];
-    }
-    
-    [self showDisplayAtIndex:currentIndex];
-    [_recordSlider setValue:currentIndex animated:YES];
-    
-    if (currentIndex == [course count] - 2) {
-        [_nextButton setEnabled:false];
-    }
-    
-    if (currentIndex == 0) {
-        [_previousButton setEnabled:true];
-    }
-    currentIndex = (currentIndex + 1) % [course count];
-    [self showDisplayAtIndex:currentIndex];
-    [_recordSlider setValue:currentIndex animated:YES];
-
-
-}
--(void) nextCheck{
-    if (currentIndex == [course count] - 2) {
-        [_nextButton setEnabled:false];
-    }
-    
-    if (currentIndex == 0) {
-        [_previousButton setEnabled:true];
-    }
-    currentIndex = (currentIndex + 1) % [course count];
-    [self showDisplayAtIndex:currentIndex];
-    [_recordSlider setValue:currentIndex animated:YES];
-    
-
-}*/
 
 - (IBAction)previousStudent:(id)sender {
         //check();
     currentIndex -= 1;
     [self check];
-//    //
-//    if (currentIndex == 1) {
-//        [_previousButton setEnabled:false];
-//    }
-//
-//    if (currentIndex == [course count] - 1) {
-//        [_nextButton setEnabled:true];
-//    }
-//    currentIndex = (currentIndex - 1) % [course count];
-//    [self showDisplayAtIndex:currentIndex];
-//    [_recordSlider setValue:currentIndex animated:YES];
+
 }
 
 - (IBAction)nextStudent:(id)sender {
     currentIndex += 1;
     [self check];
-//    if (currentIndex == [course count] - 2) {
-//        [_nextButton setEnabled:false];
-//    }
-//
-//    if (currentIndex == 0) {
-//        [_previousButton setEnabled:true];
-//    }
-//    currentIndex = (currentIndex + 1) % [course count];
-//    [self showDisplayAtIndex:currentIndex];
-//    [_recordSlider setValue:currentIndex animated:YES];
+
 }
 
 
@@ -266,13 +195,7 @@ int incrementCount = 0;
         _homework1Label.text = [NSString stringWithFormat:@"%d",[object homework1]];
         _homework2Label.text = [NSString stringWithFormat:@"%d",[object homework2]];
         _homework3Label.text = [NSString stringWithFormat:@"%d",[object homework3]];
-    /*
-        UIImageView *imageview = [[UIImageView alloc] init];
-        UIImage *myimg = [UIImage imageNamed:[object imagePath]];
-        imageview.image = myimg;
-        imageview.frame = CGRectMake(90, 75, 200, 150); // pass your frame here
-        [self.view addSubview:imageview];
-     */
+
     }
 
 
