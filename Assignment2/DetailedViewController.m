@@ -27,7 +27,7 @@
 - (void) showStudent{
     [_studentInfo setText:_studentName];
     [_studentAddress setText:_address];
-    [_studentImage setImage: _imagePath];
+    [_studentImage setImage:[UIImage imageNamed:_imagePath]];
     
 }
 - (void)viewDidLoad {
@@ -45,6 +45,5 @@
 }
 */
 
-- (IBAction)studentLabel:(id)sender {
-}
+
 @end

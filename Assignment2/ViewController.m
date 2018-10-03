@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UISlider *recordSlider;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *infoControl;
+@property (weak, nonatomic) IBOutlet UIButton *addStudent;
 
 @end
 
@@ -32,43 +33,142 @@ int incrementCount = 0;
 @implementation ViewController
 
 
+-(Boolean) Add_Student : (NSString *) name : (NSString *) address : (NSString *) image : (float) midtermScore : (float) finalScore : (int) homework1: (int) homework2 :(int) homework3 {
+    Student_Info *student = [Student_Info new];
+    //student.studentName = name;
+    [student setStudentName:name];
+    [student setFinalScore:finalScore];
+    [student setMidtermScore:midtermScore];// = midtermScore;
+    [student setHomework1:homework1];// = homework1;
+    [student setHomework2:homework2];// = homework2;
+    [student setHomework3:homework3];// = homework3;
+    student.address = address;
+    student.imagePath = image;
+    [course addObject:student];
+    return true;
+    
+}
+
+-(Boolean) Update_Test : (float) score : (NSString *) test : (NSInteger) index {
+    Student_Info *student = course[index];
+    
+    if([test isEqualToString:@"midterm"]){
+        [student setMidtermScore:score];
+        if([student midtermScore] == score){
+            return true;
+        }
+            return false;
+    }else{
+        [student setFinalScore: score];
+        if([student finalScore] == score){
+                return true;
+        }
+        return false;
+    
+    }
+    return false;
+}
+
+- (IBAction)addStudent:(id)sender {
+    [self Add_Student: _studentLabel.text :_addressLabel.text : @"" : [_midtermLabel.text floatValue] : [_finalLabel.text floatValue] : [_homework1Label.text doubleValue] : [_homework2Label.text doubleValue] : [_homework3Label.text doubleValue]];
+    [_studentLabel setText:@""];
+    [_addressLabel setText:@""];
+    [_midtermLabel setText:@""];
+    [_finalLabel setText:@""];
+    [_homework1Label setText:@""];
+    [_homework2Label setText:@""];
+    [_homework3Label setText:@""];
+    [_recordSlider setHidden: true];
+    currentIndex = course.count - 1;
+   
+}
+
 - (IBAction)pageControl:(id)sender {
     DetailedViewController * vC = [self.storyboard instantiateViewControllerWithIdentifier:@"detailView"];
+    
+    
     Student_Info * student = course[currentIndex];
     switch(_infoControl.selectedSegmentIndex){
         case 0:
+            //
+            [_previousButton setHidden: false];
+            [_nextButton setHidden: false];
+            [_recordSlider setHidden: false];
+            [_addStudent setHidden:true];
+            [self check];
             break;
         case 1:
-            vC.studentName = student.studentName;//_studentLabel.text;
-            vC.address = student.address; //_addressLabel.text;
-            vC.imagePath = student.imagePath;
-            vC.view.backgroundColor = UIColor.blueColor;
-            
-            [vC showStudent];
             [self showViewController:vC sender:NULL];
-            
+            vC.studentName = student.studentName;//_studentLabel.text;
+            vC.address = [student address]; //_addressLabel.text;
+            vC.imagePath = student.imagePath;
+            [vC showStudent];
+            [_recordSlider setHidden: false];
             break;
+            
         default:
+            [_studentLabel setText:@""];
+            [_addressLabel setText:@""];
+            [_midtermLabel setText:@""];
+            [_finalLabel setText:@""];
+            [_homework1Label setText:@""];
+            [_homework2Label setText:@""];
+            [_homework3Label setText:@""];
+            [_previousButton setHidden: true];
+            [_nextButton setHidden: true];
+            [_addStudent setHidden: false];
+            [_recordSlider setHidden: false];
             break;
     }
     
     
 }
 
-- (IBAction)previousStudent:(id)sender {
-    if (currentIndex == 1) {
+-(void) check{
+    //currentIndex = (currentIndex - 1) % [course count];
+    [_previousButton setEnabled:true];
+    [_nextButton setEnabled:true];
+    
+    if (currentIndex == 0) {
         [_previousButton setEnabled:false];
     }
     
     if (currentIndex == [course count] - 1) {
-        [_nextButton setEnabled:true];
+        [_nextButton setEnabled:false];
     }
-    currentIndex = (currentIndex - 1) % [course count];
+    
     [self showDisplayAtIndex:currentIndex];
+    
+    [_recordSlider setMaximumValue:[course count] - 1];
     [_recordSlider setValue:currentIndex animated:YES];
+    /*
+    if (currentIndex == [course count] - 2) {
+        [_nextButton setEnabled:false];
+    }
+    
+    if (currentIndex == 0) {
+        [_previousButton setEnabled:true];
+    }*/
+    //currentIndex = (currentIndex + 1) % [course count];
+    //[self showDisplayAtIndex:currentIndex];
+    //[_recordSlider setValue:currentIndex animated:YES];
+    
+    
 }
 
-- (IBAction)nextStudent:(id)sender {
+/*-(void) previousCheck{
+    currentIndex = (currentIndex - 1) % [course count];
+    if (currentIndex == 1) {
+        [_previousButton setEnabled:false];
+    }
+
+    if (currentIndex == [course count] - 1) {
+        [_nextButton setEnabled:true];
+    }
+    
+    [self showDisplayAtIndex:currentIndex];
+    [_recordSlider setValue:currentIndex animated:YES];
+    
     if (currentIndex == [course count] - 2) {
         [_nextButton setEnabled:false];
     }
@@ -79,6 +179,54 @@ int incrementCount = 0;
     currentIndex = (currentIndex + 1) % [course count];
     [self showDisplayAtIndex:currentIndex];
     [_recordSlider setValue:currentIndex animated:YES];
+
+
+}
+-(void) nextCheck{
+    if (currentIndex == [course count] - 2) {
+        [_nextButton setEnabled:false];
+    }
+    
+    if (currentIndex == 0) {
+        [_previousButton setEnabled:true];
+    }
+    currentIndex = (currentIndex + 1) % [course count];
+    [self showDisplayAtIndex:currentIndex];
+    [_recordSlider setValue:currentIndex animated:YES];
+    
+
+}*/
+
+- (IBAction)previousStudent:(id)sender {
+        //check();
+    currentIndex -= 1;
+    [self check];
+//    //
+//    if (currentIndex == 1) {
+//        [_previousButton setEnabled:false];
+//    }
+//
+//    if (currentIndex == [course count] - 1) {
+//        [_nextButton setEnabled:true];
+//    }
+//    currentIndex = (currentIndex - 1) % [course count];
+//    [self showDisplayAtIndex:currentIndex];
+//    [_recordSlider setValue:currentIndex animated:YES];
+}
+
+- (IBAction)nextStudent:(id)sender {
+    currentIndex += 1;
+    [self check];
+//    if (currentIndex == [course count] - 2) {
+//        [_nextButton setEnabled:false];
+//    }
+//
+//    if (currentIndex == 0) {
+//        [_previousButton setEnabled:true];
+//    }
+//    currentIndex = (currentIndex + 1) % [course count];
+//    [self showDisplayAtIndex:currentIndex];
+//    [_recordSlider setValue:currentIndex animated:YES];
 }
 
 
@@ -109,7 +257,7 @@ int incrementCount = 0;
             [_recordSlider setMaximumValue:[course count] - 1];
             currentIndex = 0;
         }
-    
+        [_addStudent setHidden: true];
         Student_Info *object = [course objectAtIndex:index];
         _studentLabel.text = [object studentName];
         _addressLabel.text = [object address];
@@ -118,12 +266,13 @@ int incrementCount = 0;
         _homework1Label.text = [NSString stringWithFormat:@"%d",[object homework1]];
         _homework2Label.text = [NSString stringWithFormat:@"%d",[object homework2]];
         _homework3Label.text = [NSString stringWithFormat:@"%d",[object homework3]];
-    
+    /*
         UIImageView *imageview = [[UIImageView alloc] init];
         UIImage *myimg = [UIImage imageNamed:[object imagePath]];
         imageview.image = myimg;
         imageview.frame = CGRectMake(90, 75, 200, 150); // pass your frame here
         [self.view addSubview:imageview];
+     */
     }
 
 
@@ -139,6 +288,7 @@ int incrementCount = 0;
     [course addObject:[[Student_Info alloc] init:@"King Henry VIII" :@"Whitehall Palace, England" :62 :60 :7 :6 :7: @"henry_VIII"]];
     [course addObject:[[Student_Info alloc] init:@"Queen Elizabeth" :@"Richmond Palace, England" :62 :60 :7 :6 :7: @"queen_elizabeth"]];
     [self showDisplayAtIndex:0];
+    [self check];
 }
 @end
 

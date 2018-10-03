@@ -9,8 +9,9 @@
 #import "Student_Info.h"
 
 @implementation Student_Info
--(id) init: (NSString *) name :  (NSString *) address :  (float) midtermScore :  (float) finalScore :  (int)homework1 :  (int) homework2 :  (int) homework3: (NSString *) image{
+-(id) init: (NSString *) studentName :  (NSString *) address :  (float) midtermScore :  (float) finalScore :  (int)homework1 :  (int) homework2 :  (int) homework3 : (NSString *) image{
     if(self = [super init]){
+        _studentName = studentName;
         _address = address;
         _midtermScore = midtermScore;
         _finalScore = finalScore;
